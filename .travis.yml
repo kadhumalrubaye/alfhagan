@@ -1,9 +1,10 @@
 language: python
+
 python:
-  - "3.8"
-  - "3.9"
-  - "3.10"
+  - "3.12"
+
 install:
-  - pip install -r requirements.txt
+  - python -m pip install pytest
+
 script:
-  - pytest
+  - python -m pytest
