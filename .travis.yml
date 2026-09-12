@@ -7,4 +7,5 @@ install:
   - python -m pip install pytest
 
 script:
+  - echo 'Running tests...'
   - python -m pytest
