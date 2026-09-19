@@ -1,0 +1,28 @@
+name: Issue labler
+on: 
+  issues:
+    types: [opened, edited]
+
+jobs:
+  lable_issues:
+    runs-on: Ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    steps:
+    # fetch repo
+      - name: Checkout repository
+        uses:  actions/checkout@latest
+
+    # label issues
+      - name: Lable issues
+        uses: pelikhan/action-genai-issue-labeller@lates
+        with:
+          gha-toek: ${{secrets.GITHUB_TOKEN}}
+          openapi-api-keys: ${{secrets.OPENAPI_KEYS}}
+          model: 'gpt-4o-mini'
+          labels: 'bug, feature, documentation, enhancement, question, help, '
+      
+  
+    
+  
